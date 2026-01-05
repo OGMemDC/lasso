@@ -1,6 +1,6 @@
 # Lasso
 ##
-![lasso logo](/inc/lasso.png)
+![lasso logo](https://github.com/OGMemDC/lasso/blob/main/include/lasso.png)
 ###
 [Overview](#overview)  
 [Installation instructions](#installing-lasso)  
