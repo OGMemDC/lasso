@@ -1,0 +1,71 @@
+{
+	"lasso": {
+		"paths": {
+			"install": "${HOME}/work/pentesting/lasso",
+			"lists": "${INSTALL_PATH}/lists",
+			"dorks": "${LIST_PATH}/dorks",
+			"targets": "${LIST_PATH}/target-urls",
+			"proxies": "${LIST_PATH}/proxies/proxies",
+			"bin": "${INSTALL_PATH}/bin",
+			"include": "${INSTALL_PATH}/inc",
+			"logs": "${INSTALL_PATH}/logs"
+		},
+		"deployment-type": "development",
+		"deployment-types": {
+			"production": {
+				"modules": "lassomod1-0,production",
+				"verbose": "0",
+				"logs": {
+					"activity": "${LOG_PATH}/lasso-activity.log",
+					"errors": "${LOG_PATH}/lasso-errors.log"
+				}
+			},
+			"test": {
+				"modules": "lassomod1-0,test,production",
+				"verbose": "1",
+				"logs": {
+					"activity": "${LOG_PATH}/lasso-test-activity.log",
+					"errors": "${LOG_PATH}/lasso-test-errors.log"
+				}
+			},
+			"development": {
+				"modules": "lassomod1-0,development,test,production",
+				"verbose": "2",
+				"logs": {
+					"activity": "${LOG_PATH}/lasso-dev-activity.log",
+					"errors": "${LOG_PATH}/lasso-dev-errors.log"
+				}
+			}
+		},
+		"module": {
+			"path": "${INSTALL_DIR}/mod/1.0;${HOME}/.local/lasso/mod/1.0",
+			"load": {
+				"ddg": {
+					"0.1": {
+						"filename": "lassomod1-0_ddg0-1.sh",
+						"execby": "shell",
+						"requires": {
+							"proxy": "0.1"
+						}
+					}
+				},
+				"proxy": {
+					"0.1": {
+						"filename": "lassomod1-0_proxy0-1.sh",
+						"execby": "shell",
+						"requires": {}
+					}
+				}
+			},
+			"lists": {
+				"lassomod1-0": {
+					"ddg": "0.1",
+					"proxy": "0.1"
+				},
+				"production": {},
+				"test": {},
+				"development": {}
+			}
+		}
+	}
+}
